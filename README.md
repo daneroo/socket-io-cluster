@@ -5,7 +5,7 @@ The start script (`index.js`) actually uses `cluster` to spawn 1 server and many
 
 ## TODO
 
-* same thing in one process.
+* same thing in one process. (no cluster)
 
 ## Building and Running
 
