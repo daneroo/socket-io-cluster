@@ -9,5 +9,5 @@ The start script (`index.js`) actually uses `cluster` to spawn 1 server and many
 
 ## Building and Running
 
-	docker build -t daneroo/socket-cluster .
-	docker run -it --rm daneroo/socket-cluster
+	docker build -t daneroo/socket-io-cluster .
+	docker run -it --rm daneroo/socket-io-cluster
