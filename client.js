@@ -6,8 +6,8 @@ socket.on('connect', function() {
 });
 socket.on('toclient', function(msg) {
     // console.log('client got: ', msg);
-    if (Math.random() < 0.1) {
-        console.log('client responding to: ', msg);
+    if (Math.random() < 0.001) {
+        console.log('<== client responding to: ', msg);
         socket.emit('toserver', {
             from: clientID,
             msg: 'ack ' + msg.msg

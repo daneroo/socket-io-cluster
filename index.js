@@ -1,7 +1,7 @@
 var cluster = require('cluster');
 
 var numCPUs = require('os').cpus().length;
-var numProcesses = 4;
+var numProcesses = 10;
 
 if (cluster.isMaster) {
     // Fork workers.
@@ -9,10 +9,9 @@ if (cluster.isMaster) {
         cluster.fork();
     }
 
-
-    Object.keys(cluster.workers).forEach(function(id) {
-        console.log("I am running with ID : " + cluster.workers[id].process.pid);
-    });
+    // Object.keys(cluster.workers).forEach(function(id) {
+    //     console.log("I am running with ID : " + cluster.workers[id].process.pid);
+    // });
 
     cluster.on('exit', function(worker, code, signal) {
         console.log('worker ' + worker.process.pid + ' died');
