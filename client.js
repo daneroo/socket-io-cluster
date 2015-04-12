@@ -1,4 +1,5 @@
-var socket = require('socket.io-client')('http://localhost:4000');
+var port = process.env.PORT || 4000;
+var socket = require('socket.io-client')('http://localhost:'+port);
 
 var clientID = 'client-' + Math.floor(Math.random() * 1000);
 socket.on('connect', function() {
