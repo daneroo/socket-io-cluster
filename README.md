@@ -26,5 +26,5 @@ Should (should) remove node_modules before building, (if you have been running o
 This assumes Tutum has been setup (with a password, which must be added if you log in with github).
 
   docker login tutum.co
-  docker tag daneroo/socket-io-cluster tutum.co/daneroo/socket-io-cluster 
+  docker tag -f daneroo/socket-io-cluster tutum.co/daneroo/socket-io-cluster 
   docker push tutum.co/daneroo/socket-io-cluster
