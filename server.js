@@ -44,7 +44,7 @@ setInterval(function() {
   }
   if (totalMessages % 1000 === 0) {
     var delta = (+new Date() - startTime) / 1000;
-    var msg = util.format('total message count: %d in %s seconds  %s msg/s', totalMessages, delta, totalMessages / delta);
+    var msg = util.format('total message count: %d in %s seconds  %s msg/s', totalMessages, delta.toFixed(1), (totalMessages / delta).toFixed(2));
     console.log('\n=-= %s\n', msg);
     io.emit('todashboard',{
       from: 'server-1',

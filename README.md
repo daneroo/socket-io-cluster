@@ -8,7 +8,7 @@ This is also an experiment to deploy the app to AWS with docker and Tutum
 * Node application / React.js UI (~ 100 loc each)
   * 10 node processes - all communicating with each other through websockets
   * (this simulates the grid plugin system)
-  * the server also communicates to ou React dashboard over websockets
+  * the server also communicates to our React dashboard over websockets
 * This application was packaged into a docker container image
 * The container is pushed to a private docker image repository
 * A docker capable instance was provisioned on AWS (new virtual machine)
@@ -19,11 +19,13 @@ This is also an experiment to deploy the app to AWS with docker and Tutum
 * same thing in one process. (no cluster)
 
 ## Running on host (node)
+You can see the result at [http://localhost:4000/](http://localhost:4000/)
 
     npm install
-    node index.js  #or npm start
+    node index.js  # or npm start
 
 ## Building and Running inside `docker`
+You can see the result at [http://192.168.59.103:8080/](http://192.168.59.103:8080/), or whatever your local docker IP is.
 
 Should (should) remove node_modules before building, (if you have been running on host)
 

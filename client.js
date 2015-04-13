@@ -15,7 +15,3 @@ socket.on('toclient', function(msg) {
     });
   }
 });
-
-socket.on('todashboard', function(msg) {
-  console.log('client got: ', msg);
-});

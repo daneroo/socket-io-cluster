@@ -8,6 +8,14 @@ body {
 .section {
   margin: 10px;
 }
+
+.section.what li {
+  line-height: 120%;
+}
+
+.logo img {
+  height: 40px;
+}
 .messages {
     list-style-type: none;
     margin: 0;
