@@ -51,4 +51,4 @@ setInterval(function() {
       msg: msg
     })
   }
-}, 1);
+}, 10);

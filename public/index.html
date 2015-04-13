@@ -7,9 +7,25 @@
 </head>
 
 <body>
+    <div class="section">
+      <h2>What is going on here?</h2>
+      <ul>
+        <li>Node application / React.js UI (~ 100 loc each)</li>
+        <ul>
+          <li>10 node processes - all communicating with each other through websockets </li>
+          <li><i>(this simulates the grid plugin system)</i></li>
+          <li>the server also communicates to ou React dashboard over websockets</li>
+        </ul>
+
+        <li>This application was packaged into a docker container image</li>
+        <li>The container is pushed to a private docker image repository</li>
+        <li>A docker capable instance was provisioned on AWS (new virtual machine)</li>
+        <li>The application container was deployed into this machine</li>
+      </ul>
+    </div>
+    <div id="content"></div>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="http://fb.me/react-0.13.1.js"></script>
-    <!-- <script src="http://fb.me/react-0.13.1.min.js"></script> -->
+    <script src="http://fb.me/react-with-addons-0.13.1.js"></script>
     <!-- <script src="http://fb.me/react-with-addons-0.13.1.min.js"></script> -->
     <script src="http://fb.me/JSXTransformer-0.13.1.js"></script>
     <script type="text/jsx" src="app.js"></script>

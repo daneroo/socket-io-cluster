@@ -7,9 +7,12 @@ var socket = io.connect();
 
 var Message = React.createClass({
   render: function(){
-    // console.log(this.props)
+    var cx = React.addons.classSet;
+    var classes = cx({
+      'odd': this.props.message.id%2,
+    });
     return(
-      <li>
+      <li className={classes}>
         {this.props.message.stamp} : {this.props.message.msg}
       </li>
     )
@@ -21,15 +24,12 @@ var MessageList = React.createClass({
     var renderMessage = function(message){
       return <Message key={message.id} message={message} />
     }
-    // { this.props.messages.map(renderMessage)}
     return (
-      <div>
-      <h2> Messages: </h2>
-      <ul id="messages">
-        {this.props.messages.map(function(message) {
-           return <li key={message.id}>{message.stamp}: {message.msg}</li>;
-        })}
-      </ul>
+      <div className="section">
+        <h2> Messages: </h2>
+        <ul className="messages">
+          { this.props.messages.map(renderMessage)}
+        </ul>
       </div>
     );
   }
@@ -69,9 +69,6 @@ var ChatApp = React.createClass({
   }
 });
 
-// React.render(<Hello name="World" />, document.body);
-// React.render(<CommentBox />, document.body);
-// React.render(<Message text="Blabla" />, document.body);
-React.render(<ChatApp />, document.body);
+React.render(<ChatApp />, document.getElementById('content'));
 
 
