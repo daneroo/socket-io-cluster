@@ -1,3 +1,4 @@
+require('newrelic');
 var util = require('util');
 var path = require('path');
 var express = require('express');
@@ -33,7 +34,7 @@ var totalMessages = 0;
 var startTime = +new Date();
 setInterval(function() {
 
-  var atATime = 2;
+  var atATime = 5;
   for (var i = 0; i < atATime; i++) {
     totalMessages += 1;
     io.emit('toclient', {
