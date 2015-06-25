@@ -1,4 +1,4 @@
-require('newrelic');
+var nr = require('newrelic');
 var util = require('util');
 var path = require('path');
 var express = require('express');
@@ -19,9 +19,9 @@ app.get('/', function(req, res) {
 io.on('connection', function(socket) {
   // io.emit('this', { will: 'be received by everyone'});
 
-  socket.on('toserver', function(msg) {
+  socket.on('toserver', nr.createWebTransaction('/ws/toserver', function(msg) {
     console.log('==> server got: ', msg);
-  });
+  }));
 
   socket.on('disconnect', function() {
     io.emit('user disconnected');
@@ -32,7 +32,7 @@ io.on('connection', function(socket) {
 // boradcast
 var totalMessages = 0;
 var startTime = +new Date();
-setInterval(function() {
+setInterval(nr.createWebTransaction('/ws/todashboard-proc', function() {
 
   var atATime = 5;
   for (var i = 0; i < atATime; i++) {
@@ -52,4 +52,4 @@ setInterval(function() {
       msg: msg
     })
   }
-}, 10);
+}, 10));

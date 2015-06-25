@@ -1,3 +1,4 @@
+var nr = require('newrelic');
 var port = process.env.PORT || 4000;
 var socket = require('socket.io-client')('http://localhost:'+port);
 
@@ -5,7 +6,7 @@ var clientID = 'client-' + Math.floor(Math.random() * 1000);
 socket.on('connect', function() {
   console.log('client ' + clientID + ' socket connected');
 });
-socket.on('toclient', function(msg) {
+socket.on('toclient', nr.createWebTransaction('/ws/toclient',function(msg) {
   // console.log('client got: ', msg);
   if (Math.random() < 0.001) {
     console.log('<== client responding to: ', msg);
@@ -13,5 +14,6 @@ socket.on('toclient', function(msg) {
       from: clientID,
       msg: 'ack ' + msg.msg
     });
+    nr.endTransaction();
   }
-});
+}));
