@@ -19,7 +19,7 @@ app.get('/', function(req, res) {
 io.on('connection', function(socket) {
   // io.emit('this', { will: 'be received by everyone'});
 
-  socket.on('toserver', nr.createWebTransaction('/ws/toserver', function(msg) {
+  socket.on('toserver', nr.createWebTransaction('ws/toserver', function(msg) {
     console.log('==> server got: ', msg);
     nr.endTransaction();
   }));
@@ -33,7 +33,7 @@ io.on('connection', function(socket) {
 // boradcast
 var totalMessages = 0;
 var startTime = +new Date();
-setInterval(nr.createWebTransaction('/ws/todashboard-proc', function() {
+setInterval(nr.createWebTransaction('ws/todashboard-proc', function() {
 
   var atATime = 5;
   for (var i = 0; i < atATime; i++) {
