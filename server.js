@@ -21,6 +21,7 @@ io.on('connection', function(socket) {
 
   socket.on('toserver', nr.createWebTransaction('/ws/toserver', function(msg) {
     console.log('==> server got: ', msg);
+    nr.endTransaction();
   }));
 
   socket.on('disconnect', function() {
@@ -52,4 +53,5 @@ setInterval(nr.createWebTransaction('/ws/todashboard-proc', function() {
       msg: msg
     })
   }
+  nr.endTransaction();
 }, 10));
