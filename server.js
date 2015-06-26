@@ -35,7 +35,7 @@ var totalMessages = 0;
 var startTime = +new Date();
 setInterval(nr.createWebTransaction('ws/todashboard-proc', function() {
 
-  var atATime = 3;
+  var atATime = 2;
   for (var i = 0; i < atATime; i++) {
     totalMessages += 1;
     io.emit('toclient', {
@@ -54,4 +54,4 @@ setInterval(nr.createWebTransaction('ws/todashboard-proc', function() {
     })
   }
   nr.endTransaction();
-}, 10));
+}, 20));
